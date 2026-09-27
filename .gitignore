@@ -13,7 +13,360 @@
 #Extension App-file
 *.app
 #Rapid Application Development File
-rad.json
+rad.jsonÉquivalent en HTML+CSS+JS :
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mon site</title>
+<style>
+body { background: #05000a; color: #c8ffd0; }
+h1 { color: #00ffc8; font-size: 48px; }
+button { background: #ff00c8; padding: 12px 24px; border-radius: 10px; }
+</style>
+</head>
+<body>
+<h1>Bienvenue</h1>
+<p>Ceci est une page LUX.</p>
+<button onclick="alert('Hello')">Cliquer</button>
+<div id="horloge"></div>
+<div id="compteur">0</div>
+<script>
+setInterval(() => {
+document.getElementById('horloge').textContent = new Date().toLocaleTimeString();
+}, 1000);
+let c = 0;
+setInterval(() => {
+c++;
+document.getElementById('compteur').textContent = c;
+}, 1000);
+</script>
+</body>
+</html>
+```
+
+LUX : 6 lignes. HTML+CSS+JS : 28 lignes.
+
+---
+
+Installation
+
+```sh
+git clone https://github.com/Aissamohammedi88/lux.git
+cd lux
+python3 lux.py
+```
+
+Puis ouvre ton navigateur sur http://localhost:8093/
+
+Aucune dépendance. Aucun pip install. Aucun npm install.
+
+Python 3.7+ et la bibliothèque standard, rien d'autre.
+
+---
+
+Les 60+ primitives
+
+Structure
+
+page • section • ligne • colonne • grille • carte • onglets • entete_sticky • pied • sidebar
+
+Contenu
+
+titre • sous_titre • texte • code • citation • lien • separateur • espace • icone
+
+Média
+
+image • video • audio
+
+Interaction
+
+bouton • champ • zone_texte • choix • case • radio • formulaire
+
+Tableau
+
+table • entete • corps • ligne_table • cellule • entete_cellule
+
+Liste
+
+liste • liste_numerotee
+
+Temps réel
+
+horloge • horloge_utc • compteur • temps • progressif
+
+Visualisation
+
+barre • cercle • graphique • graphique_barres • radar • spinner • animation
+
+Méta-langage
+
+variable • si • pour • composant • utiliser • style • langue
+
+---
+
+Les 16 thèmes
+
+sombre • clair • cyber • matrix • sunset • ocean • foret • minimal • neon • retro • pastel • mono • vapor • or • sang • glace
+
+Changer de thème = changer un mot :
+
+```lux
+page titre="Ma page" theme="matrix"
+```
+
+Toute la page devient verte Matrix. Sans toucher au CSS.
+
+---
+
+Fonctionnalités avancées
+
+Temps réel natif
+
+```lux
+horloge
+compteur depart=1000 pas=7 intervalle=800
+temps source="/api/etat" intervalle=2000
+progressif
+```
+
+Pas de fetch. Pas de setInterval. Pas de DOM.
+
+Visualisations animées
+
+```lux
+graphique largeur=800 hauteur=220
+graphique_barres largeur=800 hauteur=220
+radar taille=280
+cercle pourcentage=75 taille=140
+```
+
+Chaque ligne = une visualisation animée en temps réel.
+
+Formulaires complets
+
+```lux
+formulaire
+champ placeholder="Nom" type=text
+champ placeholder="Email" type=email
+zone_texte placeholder="Message..."
+choix "France, Canada, USA, UK"
+radio "Basique, Pro, Enterprise"
+case "J'accepte"
+bouton "Envoyer" action="alert('OK')"
+```
+
+Onglets interactifs
+
+```lux
+onglets "Graphique, Barres, Radar"
+graphique largeur=800 hauteur=220
+graphique_barres largeur=800 hauteur=220
+radar taille=280
+```
+
+Animations
+
+```lux
+animation type=pulse duree=2s
+icone "❤" taille=48
+```
+
+Types disponibles : pulse, float, glow, spin, slide, fade
+
+---
+
+Comment ça marche
+
+1. Tu écris un fichier .lux — indentation = hiérarchie
+2. LUX parse le fichier — ligne par ligne, attribut par attribut
+3. LUX génère du HTML+CSS+JS — une page autonome
+4. LUX sert la page — sur localhost
+
+Zéro sélecteur. Zéro cascade. Zéro conflit.
+
+Chaque ligne est autonome. Le style d'une ligne n'affecte jamais une autre ligne.
+
+---
+
+Structure du projet
+
+```
+lux/
+├── lux.py (interpréteur complet, ~2400 lignes)
+├── demo.lux (page de démonstration, 40+ primitives)
+├── demo.html (HTML généré automatiquement)
+├── README.md (ce fichier)
+├── LICENSE (NEXUS-OPEN-2.0)
+├── CONTRIBUTING.md (guide de contribution)
+├── CHANGELOG.md (historique des versions)
+└── .gitignore (exclusions)
+```
+
+---
+
+Auteur
+
+Aissa Mohammedi (DGK)
+Créateur de LUX, NEXUS, et d'une dizaine d'autres projets
+Contact : awamomo646@outlook.com
+Juridiction : Québec, Canada
+
+---
+
+Licence
+
+NEXUS-OPEN-2.0 — Licence ouverte avec clauses éthiques.
+
+Points clés :
+
+· Paternité obligatoire — le nom de l'auteur apparaît partout
+· Clause Google — 0,5 % des revenus reversés à l'open source
+· Clause NVIDIA — publication obligatoire des modifications
+· Interdiction militaire — usage dans l'armement interdit
+· Encadrement IA — RGPD, CCPA, Loi 25 (Québec)
+· Non-concurrence déloyale — interdiction de breveter
+
+Voir LICENSE pour les 30 articles complets.
+
+---
+
+Rejoins le projet
+
+Ce que je cherche :
+
+· Retours techniques
+· Avocats pour relire la licence
+· Développeurs pour ajouter des primitives
+
+Contact : awamomo646@outlook.com
+
+---
+
+LUX v2.0.0 — Fait avec soin par Aissa Mohammedi (DGK)
+
+```
+
+---
+
+```gitignore
+# LUX — .gitignore
+# Auteur : Aissa Mohammedi (DGK)
+# Licence : NEXUS-OPEN-2.0
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+.venv/
+venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.sublime-*
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Fichiers générés par LUX
+demo.html
+*.generated.html
+lux_output/
+
+# Cache
+.cache/
+.lux-cache/
+*.tmp
+*.bak
+
+# Rapports
+rapports/
+*.json.tmp
+
+# Environnement
+.env
+.env.local
+.env.*.local
+
+# Tests
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Build
+*.tar.gz
+*.zip
+!lux.zip
+
+# Node (si jamais)
+node_modules/
+package-lock.json
+yarn.lock
+```
+
+---
+
+Comment poster sur GitHub :
+
+1. Créer le dépôt :
+
+· Va sur github.com/Aissamohammedi88
+· Clique "New repository"
+· Nom : lux
+· Description : Langage de balisage remplaçant HTML + CSS + JS. 60+ primitives, 16 thèmes, 0 dépendance.
+· Public
+· No .gitignore (on met le nôtre)
+· No license (on met NEXUS-OPEN-2.0)
+
+2. Ajouter les fichiers :
+
+· README.md → coller le contenu du premier bloc
+· lux.py → coller ton code LUX Ultimate
+· .gitignore → coller le contenu du deuxième bloc
+· LICENSE → coller le texte de NEXUS-OPEN-2.0
+· demo.lux → coller le fichier DEMO du script
+· demo.html → le HTML compilé (facultatif)
+
+3. Une fois publié :
 #Translation Base-file
 *.g.xlf
 #License-files
